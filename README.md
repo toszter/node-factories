@@ -1,6 +1,9 @@
 #node-factories 
+
 [![Build Status](https://secure.travis-ci.org/jkanschik/node-factories.png)](http://travis-ci.org/jkanschik/node-factories) 
+
 [![Code Climate](https://codeclimate.com/github/jkanschik/node-factories.png)](https://codeclimate.com/github/jkanschik/node-factories) 
+
 [![devDependency Status](https://david-dm.org/jkanschik/node-factories/dev-status.png)](https://david-dm.org/jkanschik/node-factories#info=devDependencies)
 
 Node-factories is used to create test data in a simple way. It is inspired by [factory_girl](https://github.com/thoughtbot/factory_girl) which is used in the ruby-world.
