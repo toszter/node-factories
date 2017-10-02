@@ -23,7 +23,7 @@ npm install node-factories
 Simple definition of a user:
 
 ```javascript
-var factories = require('factories');
+var factories = require('node-factories');
 factories.define('user', {
   firstName: 'John',
   lastName: 'Doe',
@@ -40,7 +40,7 @@ factories.user.build(10);
 Sometimes, we don't want to save our factory in the global namespace.  'factories.build()' will allow the anonymous creation of a factory that can be saved to a variable.  While it cannot be retrieved if the variable is lost, it is no longer in the way in a project that has a large number of complicated tests.
 
 ```javascript
-var factories = require('factories');
+var factories = require('node-factories');
 var user_factory = factories.build({
   firstName: 'John',
   lastName: 'Doe',
@@ -103,7 +103,7 @@ factories.define('user', User, {
 When a factory is being built, the lazy attributes have access to the in-progress object using the variable 'this'.
 
 ```javascript
-var factories = require('factories');
+var factories = require('node-factories');
 factories.define('user', {
   firstName: 'John',
   lastName: 'Doe',
@@ -122,7 +122,7 @@ Sometimes, there is a need to create multiple similar objects from the same fact
 
 
 ```javascript
-var factories = require('factories');
+var factories = require('node-factories');
 factories.define('user', {
   firstName: 'John',
   lastName: 'Doe',
@@ -143,7 +143,7 @@ factories.user.build();
 Sequences are used to generate unique values (as opposed to the users above, which all have the same name). Basically, node-factories maintains a counter for each sequence which is increased anytime an object is created. This counter is passed to a function, which determines the actual attribute value.
 
 ```javascript
-var factories = require('factories');
+var factories = require('node-factories');
 factories.define('userWithMail', {
   firstName: 'John',
   lastName: 'Doe'
@@ -177,7 +177,7 @@ factories.otherObject.build().email
 Sometimes, a factory has a sequence that needs to be reset.  This is especially true in multiple-test situations where some sequences have cyclical data (like day of week).  This is easily achieved by running factory.reset()
 
 ```javascript
-var factories = require('factories');
+var factories = require('node-factories');
 factories.define('userWithMail', {
   firstName: 'John',
   lastName: 'Doe'
@@ -196,7 +196,7 @@ factories.userWithMail.build().email
 You can use traits for advanced configuration:
 
 ```javascript
-var factories = require('factories');
+var factories = require('node-factories');
 factories.define('user', {
   firstName: 'John',
   lastName: 'Doe',
@@ -215,7 +215,7 @@ factories.user.trait('admin').build();
 Sometimes, a factory just can't do everything you need, when you need it.  It cannot, for example, be used to automatically generate 1-to-many data against itself based upon the primary key.
 
 ```javascript
-var factories = require('factories');
+var factories = require('node-factories');
 factories.define('user', User, {
   firstName: 'John',
   lastName: 'Doe',
@@ -229,7 +229,7 @@ factories.define('user', User, {
 The only correct solution, if you want to use the factory to build data like this, is to utilize after hooks.
 
 ```javascript
-var factories = require('factories');
+var factories = require('node-factories');
 factories.define('user', User, {
   firstName: 'John',
   lastName: 'Doe',
@@ -244,7 +244,7 @@ The node-factories library supports 3 kinds of callback hooks. afterAttributes()
 
 
 ```javascript
-var factories = require('factories');
+var factories = require('node-factories');
 var userFactory = factories.define('user', User, {
   firstName: 'John',
   lastName: 'Doe',
